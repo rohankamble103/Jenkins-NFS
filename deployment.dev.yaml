@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-app-dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: your-app
+      environment: dev
+  template:
+    metadata:
+      labels:
+        app: your-app
+        environment: dev
+    spec:
+      containers:
+      - name: your-app
+        image: your-docker-registry/your-image-name:dev
+        ports:
+        - containerPort: 3000
