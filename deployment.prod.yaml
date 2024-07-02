@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: your-app-prod
+  name: nginx-prod
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: your-app
+      app: nginx
       environment: prod
   template:
     metadata:
       labels:
-        app: your-app
+        app: nginx
         environment: prod
     spec:
       containers:
-      - name: your-app
-        image: your-docker-registry/your-image-name:prod
+      - name: nginx
+        image: rohankamble103/nginx:prod
         ports:
         - containerPort: 3000
